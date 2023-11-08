@@ -15,7 +15,7 @@ import { authenticate } from '@/app/lib/actions';
 export default function LoginForm() {
   const [code, action] = useFormState(authenticate, undefined);
   return (
-    <form className="space-y-3">
+    <form action={action} className="space-y-3">
       <div className="flex-1 rounded-lg bg-gray-50 px-6 pb-4 pt-8">
         <h1 className={`${lusitana.className} mb-3 text-2xl`}>
           Please log in to continue.
@@ -77,7 +77,7 @@ export default function LoginForm() {
   );
 }
 
-function LoginButton() {
+function LoginButton() { 
   const { pending } = useFormStatus();
   return (
     <Button className="mt-4 w-full" aria-disabled={pending}>
